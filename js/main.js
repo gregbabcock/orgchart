@@ -1,6 +1,6 @@
 
 
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngDraggable']);
 
 myApp.controller('myController', ['$scope', function ($scope) {
     $scope.people = [
@@ -20,6 +20,10 @@ myApp.controller('myController', ['$scope', function ($scope) {
         $scope.phone = $scope.people[id].phone;
     }
     $scope.update = function () {
-        alert("hello");
+         var id = $scope.current;
+         $scope.people[id].firstname = $scope.firstname;
+         $scope.people[id].lastname = $scope.lastname;
+         $scope.people[id].email = $scope.email;
+         $scope.people[id].phone = $scope.phone;
     };
 } ]);

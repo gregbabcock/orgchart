@@ -10,23 +10,25 @@
     <body ng-controller="myController">
         <div class="row container">
             <div class="col-md-3"><h4 class="text-center">Roles</h4></div>
-            <div class="col-md-6"><h4 class="text-center">Org Chart</h4></div>
+            <div class="col-md-6" ng-drop="true"><h4 class="text-center">Org Chart</h4></div>
             <div class="col-md-3"><h4 class="text-center">People</h4>
-                <form ng-submit="update()">
-                    <div ng-repeat="person in people track by $index"><a ng-click="select($index)" href="#">{{person.firstname}}</a></div>
-                    <input placeholder="first name" ng-model="firstname" ng-model-options="{ updateOn: 'blur' }"/>
-                    <input placeholder="last name" ng-model="lastname" />
-                    <input placeholder="email" ng-model="email" type="email"/>
-                    <input placeholder="phone" ng-model="phone" type="tel"/>
-                    <button type="submit">Update</button>
+                <div ng-repeat="person in people track by $index" ng-drag="true" ng-drag-data="obj"><a ng-click="select($index)" href="#">{{person.firstname}}</a>
+                </div>
+                <form ng-submit="update()" display:"left">
+                        <input placeholder="first name" ng-model="firstname" ng-model-options="{ updateOn: 'blur' }"/>
+                        <input placeholder="last name" ng-model="lastname" />
+                        <input placeholder="email" ng-model="email" type="email"/>
+                        <input placeholder="phone" ng-model="phone" type="tel"/> </br>
+                        <button type="submit" class="btn btn-primary">Update</button>
             
-            </form>
+                </form>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-1.11.3.min.js" ></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src="js/main.js" ></script>
+        <script src="js/ng_dragabble.js" ></script>
 
     </body>
 
