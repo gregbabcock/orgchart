@@ -8,3 +8,7 @@ body { padding-top:30px;
 overflow: auto;
 
 }
+
+.person{
+    border: 1px solid;
+}

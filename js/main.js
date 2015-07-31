@@ -1,6 +1,6 @@
 
 
-var myApp = angular.module('myApp', ['ngDraggable']);
+var myApp = angular.module('myApp', []);
 
 myApp.controller('myController', ['$scope', function ($scope) {
     $scope.people = [
@@ -19,7 +19,7 @@ myApp.controller('myController', ['$scope', function ($scope) {
         { id: 6, name: 'Division 3', parent: 1 },
         { id: 7, name: 'Division 4', parent: 1 },
         { id: 8, name: 'Division 5', parent: 1 },
-        { id: 5, name: 'Sub Division', parent: 4 },
+        { id: 5, name: 'Sub Division', parent: 3 },
 
     ];
 
@@ -45,7 +45,6 @@ myApp.controller('myController', ['$scope', function ($scope) {
         onDeleteNode: $scope.onDeleteNode,
         onClickNode: $scope.onClickNode
     });
-    setTimeout(function () { $scope.$apply(); }, 0);
     $scope.onAddNode = function (node) {
         console.log('Created new node on node ' + node.data.id);
         $scope.orgChart.newNode(node.data.id);
@@ -56,6 +55,8 @@ myApp.controller('myController', ['$scope', function ($scope) {
     };
     $scope.onClickNode = function (node) {
         console.log('Clicked node ' + node.data.id);
-        $scope.orgChart.clickNode(node.data.id);
     };
+    $scope.makeDraggable = function() {
+        jQuery(".node,.person").draggable();
+    }
 } ]);
