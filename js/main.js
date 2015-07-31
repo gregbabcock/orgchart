@@ -22,6 +22,9 @@ myApp.controller('myController', ['$scope', function ($scope) {
         { id: 5, name: 'Sub Division', parent: 3 },
 
     ];
+    $scope.roleData = [
+        { id: 1, name: 'CEO', parent: 0 }
+        ];
 
     $scope.select = function (id) {
         $scope.current = id;
@@ -45,6 +48,14 @@ myApp.controller('myController', ['$scope', function ($scope) {
         onDeleteNode: $scope.onDeleteNode,
         onClickNode: $scope.onClickNode
     });
+    $scope.rolesChart = $('#roles').orgChart({
+        data: $scope.roleData,
+        showControls: true,
+        allowEdit: true,
+        onAddNode: $scope.onAddNode,
+        onDeleteNode: $scope.onDeleteNode,
+        onClickNode: $scope.onClickNode
+    });
     $scope.onAddNode = function (node) {
         console.log('Created new node on node ' + node.data.id);
         $scope.orgChart.newNode(node.data.id);
@@ -56,7 +67,7 @@ myApp.controller('myController', ['$scope', function ($scope) {
     $scope.onClickNode = function (node) {
         console.log('Clicked node ' + node.data.id);
     };
-    $scope.makeDraggable = function() {
+    $scope.makeDraggable = function () {
         jQuery(".node,.person").draggable();
     }
 } ]);

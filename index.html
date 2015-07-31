@@ -9,7 +9,7 @@
     </head>
     <body ng-controller="myController">
         <div class="row container">
-            <div class="col-md-3"><h4 class="text-center">Roles</h4></div>
+            <div class="col-md-3"><h4 class="text-center">Roles</h4><div id="roles"></div></div>
             <div class="col-md-6" ng-drop="true"><h4 class="text-center">Org Chart</h4><div id="orgChart"></div></div>
             <div class="col-md-3"><h4 class="text-center">People</h4>
                 <div class="person" ng-repeat="person in people track by $index"
