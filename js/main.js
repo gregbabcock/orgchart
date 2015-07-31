@@ -19,7 +19,7 @@ myApp.controller('myController', ['$scope', function ($scope) {
         { id: 6, name: 'Division 3', parent: 1 },
         { id: 7, name: 'Division 4', parent: 1 },
         { id: 8, name: 'Division 5', parent: 1 },
-        { id: 5, name: 'Sub Division', parent: 3 },
+        { id: 5, name: 'Sub Division', parent: 4 },
 
     ];
 
@@ -56,5 +56,6 @@ myApp.controller('myController', ['$scope', function ($scope) {
     };
     $scope.onClickNode = function (node) {
         console.log('Clicked node ' + node.data.id);
+        $scope.orgChart.clickNode(node.data.id);
     };
 } ]);
